@@ -2,7 +2,7 @@
 
 ## Description
 
-WISE development uses [Docker](https://www.docker.com/). Using Docker simplifies and standardizes the development environment so that developers can quickly and easily start developing WISE.
+I-Sparkle development uses [Docker](https://www.docker.com/). Using Docker simplifies and standardizes the development environment so that developers can quickly and easily start developing I-Sparkle.
 
 ## Setup
 
@@ -43,7 +43,7 @@ i-sparkle-client  |
 i-sparkle-client  | ✔ Compiled successfully.
 ```
 
-1. When you see the above output in your log output, WISE will be running at http://localhost:81. Go there with your browser to load the I-Sparkle homepage.
+1. When you see the above output in your log output, I-Sparkle will be running at http://localhost:81. Go there with your browser to load the I-Sparkle homepage.
 2. Log in with admin/pass, or previewuser/wise.
 
 Any changes that you make to the source code will be automatically compiled and reloaded in the browser.
@@ -115,9 +115,3 @@ $ docker exec -i i-sparkle-mysql sh -c 'exec mysqldump wise_database -uroot -p"$
 # Resources
 
 Open-source license: GNU General Public License, v3. See LICENSE.txt for details.
-
-To see WISE in action and for inquiry science curricula developed by the WISE research team at UC Berkeley, visit https://wise.berkeley.edu.
-
-Developer discussions: https://github.com/WISE-Community/WISE-Docker-Dev/discussions
-
-General WISE discussions: https://wise-discuss.berkeley.edu/
