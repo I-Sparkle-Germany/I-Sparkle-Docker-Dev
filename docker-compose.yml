@@ -1,14 +1,14 @@
 version: '3.8'
 
 services:
-  wise-redis:
+  i-sparkle-redis:
     image: redis:6.2
-    container_name: wise-redis
+    container_name: i-sparkle-redis
 
-  wise-mysql:
+  i-sparkle-mysql:
     platform: linux/x86_64
     image: mysql:8
-    container_name: wise-mysql
+    container_name: i-sparkle-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=iamroot
       - MYSQL_DATABASE=wise_database
@@ -18,38 +18,38 @@ services:
       - './docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d'
       - './data:/var/lib/mysql'
 
-  wise-api:
+  i-sparkle-api:
     image: wiseberkeley/wise-api-dev:latest
-    container_name: wise-api
+    container_name: i-sparkle-api
     expose:
       - '5005'
     depends_on:
-      - wise-redis
-      - wise-mysql
+      - i-sparkle-redis
+      - i-sparkle-mysql
     ports:
       - '5005:5005'
       - '8080:8080'
     volumes:
-      - '../WISE-API:/app'
+      - '../I-Sparkle-API:/app'
     command: >
       bash -c '/app/create-application-dockerdev-properties-if-necessary.sh &&
       mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=*:5005" -Dspring-boot.run.profiles=dockerdev'
 
-  wise-client:
+  i-sparkle-client:
     image: wiseberkeley/wise-client-dev:latest
-    container_name: wise-client
+    container_name: i-sparkle-client
     depends_on:
-      - wise-api
+      - i-sparkle-api
     ports:
       - '4200:4200'
     volumes:
-      - '../WISE-Client:/app'
+      - '../I-Sparkle-Client:/app'
 
-  wise-nginx:
+  i-sparkle-nginx:
     image: nginx:1.22
-    container_name: wise-nginx
+    container_name: i-sparkle-nginx
     depends_on:
-      - wise-client
+      - i-sparkle-client
     ports:
       - '81:80'
     volumes:
