@@ -19,7 +19,7 @@ I-Sparkle-API
 I-Sparkle-Client
 ```
 
-3 Run `npm install` in I-Sparkle-Client directory
+3. Run `npm install` in I-Sparkle-Client directory
 
 ```
 $ cd I-Sparkle-Client
@@ -29,7 +29,7 @@ I-Sparkle-Client $ npm install
 4. Run `docker compose up` in the I-Sparkle-Docker-Dev directory
 
 ```
-$ cd I-Sparkle-Docker-Dev
+$ cd ../I-Sparkle-Docker-Dev
 I-Sparkle-Docker-Dev $ docker compose up
 ```
 
@@ -43,8 +43,8 @@ i-sparkle-client  |
 i-sparkle-client  | ✔ Compiled successfully.
 ```
 
-1. When you see the above output in your log output, I-Sparkle will be running at http://localhost:81. Go there with your browser to load the I-Sparkle homepage.
-2. Log in with admin/pass, or previewuser/wise.
+6. When you see the above output in your log output, I-Sparkle will be running at http://localhost:81. Go there with your browser to load the I-Sparkle homepage.
+7. Log in with admin/pass, or previewuser/wise.
 
 Any changes that you make to the source code will be automatically compiled and reloaded in the browser.
 
