@@ -112,6 +112,6 @@ $ docker exec -i i-sparkle-mysql sh -c 'exec mysql wise_database -uroot -p"$MYSQ
 $ docker exec -i i-sparkle-mysql sh -c 'exec mysqldump wise_database -uroot -p"$MYSQL_ROOT_PASSWORD"' > wise_database_dump.sql
 ```
 
-# Resources
+Please head over to our [wiki page](https://github.com/WISE-Community/WISE-Docker-Dev/wiki) for additional documentation, like how to run the unit tests and commonly-used Docker commands.
 
 Open-source license: GNU General Public License, v3. See LICENSE.txt for details.

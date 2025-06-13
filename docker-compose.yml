@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   i-sparkle-redis:
-    image: redis:6.2
+    image: redis:7
     container_name: i-sparkle-redis
 
   i-sparkle-mysql:
@@ -45,12 +45,34 @@ services:
     volumes:
       - '../I-Sparkle-Client:/app'
 
+  i-sparkle-client-test:
+    image: wiseberkeley/wise-client-dev:latest
+    container_name: i-sparkle-client-test
+    command: npm test -- --source-map=true --watch=true
+    expose:
+      - '9876'
+    ports:
+      - '9876:9876'
+    volumes:
+      - '../I-Sparkle-Client:/app'
+    profiles:
+      - i-sparkle-client-test
+
+  i-sparkle-client-build-prod:
+    image: wiseberkeley/wise-client-dev:latest
+    container_name: i-sparkle-client-build-prod
+    command: npm run build-prod
+    volumes:
+      - '../I-Sparkle-Client:/app'
+    profiles:
+      - i-sparkle-client-build-prod
+
   i-sparkle-nginx:
-    image: nginx:1.22
+    image: nginx:1.26
     container_name: i-sparkle-nginx
     depends_on:
       - i-sparkle-client
     ports:
-      - '81:80'
+      - '80:80'
     volumes:
       - '${PWD}/nginx/conf.d:/etc/nginx/conf.d'
